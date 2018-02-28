@@ -33,4 +33,12 @@ public class ViewRepoTest {
 		assertThat(views.get(0).getPersonName()).isEqualTo("person1");
 		assertThat(views.get(1).getPersonName()).isEqualTo("person1");
 	}
+	
+	@Test
+	public void getPersonByName() {
+		final PersonDto person = viewRepo.getPersonByName("person1");
+		assertThat(person).isNotNull();
+		assertThat(person.getName()).isEqualTo("person1");
+		assertThat(person.getCars()).hasSize(2);
+	}
 }
